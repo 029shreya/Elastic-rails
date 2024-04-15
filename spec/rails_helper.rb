@@ -65,4 +65,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  RSpec.configure do |config|
+    # Other configurations...
+
+    config.include(Shoulda::Matchers::ActiveModel, type: :model)
+    config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  end
 end

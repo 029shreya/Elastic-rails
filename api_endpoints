@@ -1,0 +1,116 @@
+API Endpoints
+	Signup: POST /api/v1/auth/signup
+	action - POST
+	Parameters: { name, username, email, password, password_confirmation }
+	
+
+	Login: POST /api/v1/auth/login
+	action - POST
+	Parameters: { email, password }
+	After successful login, include the generated access token in the Authorization header of your requests.
+	
+	Vertical
+	
+		create - {{host}}/api/v1/verticals
+		action - POST
+		Parameters - 
+		{ "vertical": {
+		  "name": "Amazon",
+		  "categories_attributes": [
+		    {
+		      "name": "Shoes",
+		      "state": "active"
+		    },
+		    {
+		      "name": "Clothes",
+		      "state": "active"
+		    }
+		  ]
+		}
+		}
+
+
+		get - {{host}}/api/v1/verticals
+		action - GET
+
+
+		update - {{host}}/api/v1/verticals/:id
+		action - PUT
+		Parameters - 
+		{ "vertical": {
+		  "name": "Amazon",
+		  "categories_attributes": [
+		    {
+		      "name": "Shoes",
+		      "state": "active"
+		    },
+		    {
+		      "name": "Clothes",
+		      "state": "active"
+		    }
+		  ]
+		}
+		}
+
+
+	Category
+		
+		create - {{host}}/api/v1/categories
+		action - POST
+			Parameters - {
+    "name": "Bike",
+    "courses_attributes": [
+        { "name": "Royal Enfield", "author": "karnveer", "state": "active" },
+        { "name": "Activa", "author": "Rajveer", "state": "active" }
+    ],
+    "state": "active",
+    "vertical_id": 4
+		}
+
+		get    - {{host}}/api/v1/categories
+		action - GET
+
+		update - {{host}}/api/v1/categories/:id
+		action - PUT
+		Parameters - {
+    "name": "Bike",
+    "courses_attributes": [
+        { "name": "Royal Enfield", "author": "karnveer", "state": "active" },
+        { "name": "Activa", "author": "Rajveer", "state": "active" }
+    ],
+    "state": "active",
+    "vertical_id": 4
+		}
+
+	Course
+
+		create - {{host}}/api/v1/courses
+		action - POST
+		Parameters - {
+      course: {
+        name: 'BCA',
+        state: 'active',
+        category_id: category.id,
+        courses_attributes: [
+          { name: 'Mathematics', author: 'demo', state: 'active' },
+          { name: 'BI', author: 'demo1', state: 'active' }
+        ]
+      }
+    }
+
+    get - {{host}}/api/v1/courses
+    action - GET
+
+    update - {{host}}/api/v1/courses/:id
+    action - PUT
+    Parameters - {
+      course: {
+        name: 'BCA',
+        state: 'active',
+        category_id: category.id,
+        courses_attributes: [
+          { name: 'Mathematics', author: 'demo', state: 'active' },
+          { name: 'BI', author: 'demo1', state: 'active' }
+        ]
+      }
+    }

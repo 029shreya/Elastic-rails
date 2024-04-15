@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
+# app/models/category.rb
+
 class Category < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
   belongs_to :vertical
   has_many :courses
+
+  validates :name, presence: true
+  validates :name, uniqueness: { scope: :vertical_id, case_sensitive: false }
 
   validate :name_unique_across_verticals
 

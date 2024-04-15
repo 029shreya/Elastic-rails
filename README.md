@@ -25,14 +25,8 @@ Database setup:
 Run the server:
  rails server
 
-API Endpoints
-	Signup: POST /api/v1/users
-
-	Parameters: { name, username, email, password, password_confirmation }
-	Login: POST /api/v1/auth/login
-
-	Parameters: { email, password }
-	After successful login, include the generated access token in the Authorization header of your requests.
+API endpoints are mentioned here: 
+ elastic/api_endpoints
 
 Elasticsearch Setup:
  Download Elasticsearch:
